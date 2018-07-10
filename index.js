@@ -28,9 +28,9 @@ router.post("/addInfo", function(req, res) {
   }
   res.send(req.body.name);
   checkFile(filePath, function(isExist) {
-    console.log(isExist + " exitst");
+    // console.log(isExist + " exitst");
     let line =
-      req.body.name + ", " + req.body.phone + ", " + req.body.address + "\n";
+      req.body.name + ", " + req.body.phone + ", " + req.body.address + "\n </br>";
     if (!isExist) {
       fs.writeFile(filePath, "", "utf8", err => {
         if (err) {
@@ -50,10 +50,10 @@ function checkFile(path, callback) {
 }
 
 router.get("/get", function(req, res) {
-  console.log(req.params.key);
-  if (req.params.key == myKey) {
-    let text = fs.readFileSync(filePath);
-    res.send(test);
+  // console.log(req.query);
+  if (req.query.key == myKey) {
+    let text = fs.readFileSync(filePath, 'utf8').toString();
+    res.send(text);
   } else {
     res.send("Sorry");
   }
