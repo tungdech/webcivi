@@ -29,8 +29,10 @@ router.post("/addInfo", function(req, res) {
   res.send(req.body.name);
   checkFile(filePath, function(isExist) {
     // console.log(isExist + " exitst");
-    let line =
-      req.body.name + ", " + req.body.phone + ", " + req.body.address + "\n </br>";
+    let date = new Date();
+    let time = new Date(date.valueOf() + 7 * 3600 * 1000);
+    let line = time.toLocaleString() + ", " +
+      req.body.name + ", " + req.body.phone + ", " + req.body.address + "</br>\n ";
     if (!isExist) {
       fs.writeFile(filePath, "", "utf8", err => {
         if (err) {
@@ -51,9 +53,15 @@ function checkFile(path, callback) {
 
 router.get("/get", function(req, res) {
   // console.log(req.query);
+  let text = 'Khong co du lieu'
   if (req.query.key == myKey) {
-    let text = fs.readFileSync(filePath, 'utf8').toString();
+    try{
+        text = fs.readFileSync(filePath, 'utf8').toString();
+    } catch(err) {
+    	res.send('Khong co du lieu')
+    }
     res.send(text);
+
   } else {
     res.send("Sorry");
   }
