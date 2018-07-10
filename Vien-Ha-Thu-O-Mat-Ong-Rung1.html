@@ -161,7 +161,7 @@
 				}else{
 					$(".js_errorMessage_phone").hide();
         }
-          $.post( "http://suckhoevadoisong.site/addInfo", { name: name, address: address, phone: phone })
+          $.post( "/addInfo", { name: name, address: address, phone: phone })
             .done(function( response ) {
             alert('CHÚC MỪNG ' + response + ' ĐÃ ĐẮNG KÝ THÀNH CÔNG!')
           });
