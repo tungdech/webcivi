@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const hostname = "0.0.0.0";
-const port = 8000;
+const port = 80;
 // Set bodyparser for using body in request
 const express = require("express");
 const app = express();
@@ -32,7 +32,7 @@ var sontung = {
 
 app.get("", function (req, res) {
   var account = getAccount(req)
-  if (account && account.count) account.count++;
+  if (account) account.count++;
   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 });
 
@@ -77,9 +77,10 @@ router.post("/addInfo", function (req, res) {
 
 function getAccount(req) {
   //console.log(req.headers)
-  if (req.headers.host.includes(thanhtung.link)) {
-    return thanhtung;
-  } else return sontung;
+  try{
+  	if (req.headers.host.includes(thanhtung.link)) {
+  	  return thanhtung;
+  } else return sontung;} catch(err){ console.log('loi'); return sontung}
 }
 
 function checkFile(path, callback) {
