@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const hostname = "0.0.0.0";
-const port = 80;
+const port = 8000;
 // Set bodyparser for using body in request
 const express = require("express");
 const app = express();
@@ -14,29 +14,34 @@ app.use(
   })
 );
 
-const thanhtung = {
+var thanhtung = {
   name: 'thanhtung',
   // link: "/ha-thu-o-mat-ong-rung",
   link: ".online",
-  filePath: __dirname + "/thanhtung123"
+  filePath: __dirname + "/thanhtung123",
+  count: 0,
 }
 
-const sontung = {
+var sontung = {
   name: 'sontung',
   // link: "/ha-thu-o-mat-ong-rung-chua-bac-toc",
   link: ".site",
-  filePath: __dirname + "/tungts123"
+  filePath: __dirname + "/tungts123",
+  count: 0
 }
 
 app.get("", function (req, res) {
+  sontung.count++
   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 });
 
 app.get(thanhtung.link, function (req, res) {
+	thanhtung.count++;
   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 });
 
 app.get(sontung.link, function (req, res) {
+  sontung.count++;
   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 });
 
@@ -88,7 +93,7 @@ router.get("/get123key", function (req, res) {
   // if (req.query.key == myKey) {
     try {
       text = fs.readFileSync(Account.filePath, 'utf8').toString();
-      res.send(text);
+      res.send(text + '</br> Truy cap: ' + Account.count);
     } catch (err) {
       res.send('Khong co du lieu')
     }
