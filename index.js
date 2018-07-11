@@ -1,4 +1,3 @@
-const http = require("http");
 const fs = require("fs");
 const hostname = "0.0.0.0";
 const port = 80;
@@ -7,38 +6,46 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/public'));
 app.use(
   bodyParser.urlencoded({
     extended: true
   })
 );
 
-const thanhtung = {
+var thanhtung = {
   name: 'thanhtung',
   // link: "/ha-thu-o-mat-ong-rung",
   link: ".online",
-  filePath: __dirname + "/thanhtung123"
+  filePath: __dirname + "/thanhtung123",
+  count: 0,
 }
 
-const sontung = {
+var sontung = {
   name: 'sontung',
   // link: "/ha-thu-o-mat-ong-rung-chua-bac-toc",
   link: ".site",
-  filePath: __dirname + "/tungts123"
+  filePath: __dirname + "/tungts123",
+  count: 0
 }
 
 app.get("", function (req, res) {
-  res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
+  var account = getAccount(req)
+  if (account) account.count++;
+  res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
+    root: __dirname
+  });
 });
 
-app.get(thanhtung.link, function (req, res) {
-  res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
-});
+// app.get(thanhtung.link, function (req, res) {
+//   thanhtung.count++;
+//   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
+// });
 
-app.get(sontung.link, function (req, res) {
-  res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
-});
+// app.get(sontung.link, function (req, res) {
+//   sontung.count++;
+//   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
+// });
 
 router.post("/addInfo", function (req, res) {
   console.log(req.body);
@@ -71,9 +78,14 @@ router.post("/addInfo", function (req, res) {
 
 function getAccount(req) {
   //console.log(req.headers)
-  if (req.headers.host.includes(thanhtung.link)) {
-    return thanhtung;
-  } else return sontung;
+  try {
+    if (req.headers.host.includes(thanhtung.link)) {
+      return thanhtung;
+    } else return sontung;
+  } catch (err) {
+    console.log('Loi');
+    return sontung
+  }
 }
 
 function checkFile(path, callback) {
@@ -86,12 +98,12 @@ router.get("/get123key", function (req, res) {
   let Account = getAccount(req)
   console.log(Account.name);
   // if (req.query.key == myKey) {
-    try {
-      text = fs.readFileSync(Account.filePath, 'utf8').toString();
-      res.send(text);
-    } catch (err) {
-      res.send('Khong co du lieu')
-    }
+  try {
+    text = fs.readFileSync(Account.filePath, 'utf8').toString();
+    res.send(text + '</br> Truy cap: ' + Account.count);
+  } catch (err) {
+    res.send('Khong co du lieu')
+  }
   // } else {
   //   res.send("Sorry");
   // }
