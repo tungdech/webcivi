@@ -1,4 +1,3 @@
-const http = require("http");
 const fs = require("fs");
 const hostname = "0.0.0.0";
 const port = 80;
@@ -7,7 +6,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/public'));
 app.use(
   bodyParser.urlencoded({
     extended: true
@@ -33,7 +32,9 @@ var sontung = {
 app.get("", function (req, res) {
   var account = getAccount(req)
   if (account) account.count++;
-  res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
+  res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
+    root: __dirname
+  });
 });
 
 // app.get(thanhtung.link, function (req, res) {
@@ -77,10 +78,14 @@ router.post("/addInfo", function (req, res) {
 
 function getAccount(req) {
   //console.log(req.headers)
-  try{
-  	if (req.headers.host.includes(thanhtung.link)) {
-  	  return thanhtung;
-  } else return sontung;} catch(err){ console.log('loi'); return sontung}
+  try {
+    if (req.headers.host.includes(thanhtung.link)) {
+      return thanhtung;
+    } else return sontung;
+  } catch (err) {
+    console.log('Loi');
+    return sontung
+  }
 }
 
 function checkFile(path, callback) {
@@ -93,12 +98,12 @@ router.get("/get123key", function (req, res) {
   let Account = getAccount(req)
   console.log(Account.name);
   // if (req.query.key == myKey) {
-    try {
-      text = fs.readFileSync(Account.filePath, 'utf8').toString();
-      res.send(text + '</br> Truy cap: ' + Account.count);
-    } catch (err) {
-      res.send('Khong co du lieu')
-    }
+  try {
+    text = fs.readFileSync(Account.filePath, 'utf8').toString();
+    res.send(text + '</br> Truy cap: ' + Account.count);
+  } catch (err) {
+    res.send('Khong co du lieu')
+  }
   // } else {
   //   res.send("Sorry");
   // }
