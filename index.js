@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const hostname = "0.0.0.0";
-const port = 8000;
+const port = 80;
 // Set bodyparser for using body in request
 const express = require("express");
 const app = express();
@@ -15,7 +15,7 @@ app.use(
 );
 
 const thanhtung = {
-  name: 'thanktung',
+  name: 'thanhtung',
   // link: "/ha-thu-o-mat-ong-rung",
   link: ".online",
   filePath: __dirname + "/thanhtung123"
@@ -70,7 +70,8 @@ router.post("/addInfo", function (req, res) {
 });
 
 function getAccount(req) {
-  if (thanhtung.link.indexOf(req.header.referer) !== -1) {
+  //console.log(req.headers)
+  if (req.headers.host.includes(thanhtung.link)) {
     return thanhtung;
   } else return sontung;
 }
@@ -79,10 +80,11 @@ function checkFile(path, callback) {
   callback(fs.existsSync(path));
 }
 
-router.get("/get", function (req, res) {
+router.get("/get123key", function (req, res) {
   // console.log(req.query);
   let text = 'Khong co du lieu'
   let Account = getAccount(req)
+  console.log(Account.name);
   // if (req.query.key == myKey) {
     try {
       text = fs.readFileSync(Account.filePath, 'utf8').toString();
@@ -95,7 +97,7 @@ router.get("/get", function (req, res) {
   // }
 });
 
-// app.use("/", router);
+app.use("/", router);
 
 app.listen(port, () => {
   console.log(`Server running at http://${hostname}:${port}/`)
