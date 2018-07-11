@@ -31,19 +31,20 @@ var sontung = {
 }
 
 app.get("", function (req, res) {
-  sontung.count++
+  var account = getAccount(req)
+  if (account && account.count) account.count++;
   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 });
 
-app.get(thanhtung.link, function (req, res) {
-	thanhtung.count++;
-  res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
-});
+// app.get(thanhtung.link, function (req, res) {
+//   thanhtung.count++;
+//   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
+// });
 
-app.get(sontung.link, function (req, res) {
-  sontung.count++;
-  res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
-});
+// app.get(sontung.link, function (req, res) {
+//   sontung.count++;
+//   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
+// });
 
 router.post("/addInfo", function (req, res) {
   console.log(req.body);
