@@ -26,12 +26,12 @@
   src="https://www.facebook.com/tr?id=421339848364136&ev=PageView&noscript=1"
 /></noscript>
 
-<script>
+<!-- <script>
   fbq('track', 'Purchase', {
     value: 1000,
     currency: 'VND',
   });
-</script>
+</script> -->
 
 <!-- End Facebook Pixel Code -->
 
@@ -189,6 +189,7 @@
 				}else{
 					$(".js_errorMessage_phone").hide();
         }
+        fbq('track', 'CompleteRegistration', {currency: 'VND', value: 50000});
           $.post( "/addInfo", { name: name, address: address, phone: phone })
             .done(function( response ) {
             alert('CHÚC MỪNG ' + response + ' ĐÃ ĐẮNG KÝ THÀNH CÔNG!')
