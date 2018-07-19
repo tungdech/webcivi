@@ -25,14 +25,6 @@
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=421339848364136&ev=PageView&noscript=1"
 /></noscript>
-
-<!-- <script>
-  fbq('track', 'Purchase', {
-    value: 1000,
-    currency: 'VND',
-  });
-</script> -->
-
 <!-- End Facebook Pixel Code -->
 
 <script src="./Vien-Ha-Thu-O-Mat-Ong-Rung1_files/jquery-3.2.1.min.js.tải xuống"></script>
@@ -190,6 +182,7 @@
 					$(".js_errorMessage_phone").hide();
         }
         fbq('track', 'CompleteRegistration', {currency: 'VND', value: 50000});
+        fbq('track', 'Purchase', {    value: 1000,    currency: 'VND',  });
           $.post( "/addInfo", { name: name, address: address, phone: phone })
             .done(function( response ) {
             alert('CHÚC MỪNG ' + response + ' ĐÃ ĐẮNG KÝ THÀNH CÔNG!')
