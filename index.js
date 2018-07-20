@@ -47,6 +47,10 @@ app.get("", function (req, res) {
 //   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 // });
 
+app.get("/tinh-dau-ngai-cuu", function(req, res){
+  res.sendFile("./public/tinhdaungaicuu")
+})
+
 router.post("/addInfo", function (req, res) {
   console.log(req.body);
   if (!req.body) {
