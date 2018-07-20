@@ -48,7 +48,9 @@ app.get("", function (req, res) {
 // });
 
 app.get("/tinh-dau-ngai-cuu", function(req, res){
-  res.sendFile("./public/tinhdaungaicuu.html")
+  res.sendFile("./public/tinhdaungaicuu.html"),{
+    root: __dirname
+  }
 })
 
 router.post("/addInfo", function (req, res) {
