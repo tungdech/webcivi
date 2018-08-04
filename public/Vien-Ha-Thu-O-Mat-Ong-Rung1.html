@@ -19,8 +19,8 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  // fbq('init', '421339848364136'); tungts
-  fbq('init', '377829806058841');
+  fbq('init', '421339848364136'); //tungts
+  // fbq('init', '377829806058841'); //thanh tung
   fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
@@ -182,7 +182,10 @@
 				}else{
 					$(".js_errorMessage_phone").hide();
         }
-        fbq('track', 'CompleteRegistration', {currency: 'VND', value: 50000});
+        // document.getElementById("submitBtn").addEventListener("click", function(){
+        //       fbq('track', 'Purchase');
+        // });
+        //fbq('track', 'CompleteRegistration', {currency: 'VND', value: 50000});
         fbq('track', 'Purchase', {    value: 1000,    currency: 'VND',  });
           $.post( "/addInfo", { name: name, address: address, phone: phone })
             .done(function( response ) {
