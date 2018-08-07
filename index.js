@@ -32,9 +32,17 @@ var sontung = {
 app.get("", function (req, res) {
   var account = getAccount(req)
   if (account) account.count++;
+  if (account && account.name == "thanhtung")
+  {
+  res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung2.html", {
+    root: __dirname
+  });
+  }
+  else {
   res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
     root: __dirname
   });
+  }
 });
 
 // app.get(thanhtung.link, function (req, res) {
@@ -48,9 +56,9 @@ app.get("", function (req, res) {
 // });
 
 app.get("/tinh-dau-ngai-cuu", function(req, res){
-  res.sendFile("./public/tinhdaungaicuu.html"),{
+  res.sendFile("./public/tinhdaungaicuu.html",{
     root: __dirname
-  }
+  })
 })
 
 router.post("/addInfo", function (req, res) {
