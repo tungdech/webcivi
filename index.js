@@ -16,7 +16,7 @@ app.use(
 var thanhtung = {
   name: 'thanhtung',
   // link: "/ha-thu-o-mat-ong-rung",
-  link: ".online",
+  link: "suckhoevadoisong.online",
   filePath: __dirname + "/thanhtung123",
   count: 0,
 }
@@ -29,7 +29,7 @@ var phukienhay = {
 var sontung = {
   name: 'sontung',
   // link: "/ha-thu-o-mat-ong-rung-chua-bac-toc",
-  link: ".site",
+  link: "suckhoevadoisong.site",
   filePath: __dirname + "/tungts123",
   count: 0
 }
@@ -102,7 +102,7 @@ function getAccount(req) {
   try {
     if (req.headers.host.includes(thanhtung.link)) {
       return thanhtung;
-    } else if (req.headers.host.includes("phukienhay")) {
+    } else if (req.headers.host.includes(phukienhay.link)) {
       return phukienhay;
     } else return sontung;
   } catch (err) {
