@@ -21,6 +21,11 @@ var thanhtung = {
   count: 0,
 }
 
+var phukienhay = {
+  name: "phukienhay",
+  link: "phukienhay"
+}
+
 var sontung = {
   name: 'sontung',
   // link: "/ha-thu-o-mat-ong-rung-chua-bac-toc",
@@ -32,16 +37,18 @@ var sontung = {
 app.get("", function (req, res) {
   var account = getAccount(req)
   if (account) account.count++;
-  if (account && account.name == "thanhtung")
-  {
-  res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung2.html", {
-    root: __dirname
-  });
-  }
-  else {
-  res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
-    root: __dirname
-  });
+  if (account && account.name == "thanhtung") {
+    res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung2.html", {
+      root: __dirname
+    });
+  } else if (account.name == "phukienhay") {
+    res.sendFile("./public/vongco.html", {
+      root: __dirname
+    });
+  } else {
+    res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
+      root: __dirname
+    });
   }
 });
 
@@ -55,8 +62,8 @@ app.get("", function (req, res) {
 //   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 // });
 
-app.get("/tinh-dau-ngai-cuu", function(req, res){
-  res.sendFile("./public/tinhdaungaicuu.html",{
+app.get("/tinh-dau-ngai-cuu", function (req, res) {
+  res.sendFile("./public/tinhdaungaicuu.html", {
     root: __dirname
   })
 })
@@ -95,6 +102,8 @@ function getAccount(req) {
   try {
     if (req.headers.host.includes(thanhtung.link)) {
       return thanhtung;
+    } else if (req.headers.host.includes("phukienhay")) {
+      return phukienhay;
     } else return sontung;
   } catch (err) {
     console.log('Loi');
