@@ -13,11 +13,11 @@ app.use(
   })
 );
 
-var thanhtung = {
-  name: 'thanhtung',
+var tieuduong = {
+  name: 'tieuduong',
   // link: "/ha-thu-o-mat-ong-rung",
   link: "suckhoevadoisong.online",
-  filePath: __dirname + "/thanhtung123",
+  filePath: __dirname + "/tieuduong123",
   count: 0,
 }
 
@@ -37,8 +37,8 @@ var sontung = {
 app.get("", function (req, res) {
   var account = getAccount(req)
   if (account) account.count++;
-  if (account && account.name == "thanhtung") {
-    res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung2.html", {
+  if (account && account.name == "tieuduong") {
+    res.sendFile("./public/tieuduonghvqy2.html", {
       root: __dirname
     });
   } else if (account.name == "phukienhay") {
@@ -52,8 +52,8 @@ app.get("", function (req, res) {
   }
 });
 
-// app.get(thanhtung.link, function (req, res) {
-//   thanhtung.count++;
+// app.get(tieuduong.link, function (req, res) {
+//   tieuduong.count++;
 //   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
 // });
 
@@ -100,8 +100,8 @@ router.post("/addInfo", function (req, res) {
 function getAccount(req) {
   //console.log(req.headers)
   try {
-    if (req.headers.host.includes(thanhtung.link)) {
-      return thanhtung;
+    if (req.headers.host.includes(tieuduong.link)) {
+      return tieuduong;
     } else if (req.headers.host.includes(phukienhay.link)) {
       return phukienhay;
     } else return sontung;
