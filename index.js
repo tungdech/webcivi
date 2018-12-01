@@ -15,7 +15,6 @@ app.use(
 
 var tieuduong = {
   name: 'tieuduong',
-  // link: "/ha-thu-o-mat-ong-rung",
   link: "suckhoevadoisong.online",
   filePath: __dirname + "/tieuduong123",
   count: 0,
@@ -101,10 +100,14 @@ function getAccount(req) {
   //console.log(req.headers)
   try {
     if (req.headers.host.includes(tieuduong.link)) {
+		console.log(" tieu duong");
       return tieuduong;
     } else if (req.headers.host.includes(phukienhay.link)) {
       return phukienhay;
-    } else return sontung;
+    } else {
+		console.log(" sontung");
+		return sontung;
+	}
   } catch (err) {
     console.log('Loi');
     return sontung
