@@ -100,14 +100,10 @@ function getAccount(req) {
   //console.log(req.headers)
   try {
     if (req.headers.host.includes(tieuduong.link)) {
-		console.log(" tieu duong");
       return tieuduong;
     } else if (req.headers.host.includes(phukienhay.link)) {
       return phukienhay;
-    } else {
-		console.log(" sontung");
-		return sontung;
-	}
+    } else return sontung;
   } catch (err) {
     console.log('Loi');
     return sontung
