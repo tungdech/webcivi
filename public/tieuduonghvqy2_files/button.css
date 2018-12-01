@@ -1,0 +1,126 @@
+.button {
+    text-transform: uppercase;
+    font: 15px/37px arial, sans-serif;
+    display: block;
+    margin: 25px auto 25px auto;
+    color: #fff;
+    text-align: center;
+    width: 50%;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: bold;
+    background: linear-gradient(#579FD0 , #0A8FDA 42%, #0A78C2 58%, #0A4A8F);
+    padding: 7px 30px;
+    text-shadow: rgba(255,255,255,.1) -1px -1px 1px, rgba(0,0,0,.5) 1px 1px 1px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 3px 3px 5px #ccc;
+    border: 1px solid #DAE2E8;
+    font-size: 25px;
+}
+
+.button:hover {
+    background: linear-gradient(#36BEF5 , #0A9CFC 42%, #0A80E6 58%, #0A5AD2);
+    box-shadow: 1px 1px 2px #ddd;
+    text-decoration: none;
+}
+
+
+@media screen and (min-width: 765px){
+.image-product{
+	width: 50%;
+	
+	float: left
+	}
+
+.image-product img{
+	width: 100%;
+	}	
+.form-submit{
+	width: 48%;
+	
+	float: right
+	}
+.main-link {
+    display: block;
+    margin: 20px auto;
+	border:none;
+    padding: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    background-color: #de0606;
+    text-align: center;
+    color: #fff!important;
+    border-radius: 4px;
+}
+}
+@media screen and (max-width: 765px){
+
+.image-product{
+	width: 100%;
+	text-align:center;
+	float: none
+	}
+	
+.image-product img{
+	width: 80%;
+	}	
+	
+.form-submit{
+	width: 100%;
+	
+	float: none
+	}
+.main-link {
+    display: block;
+    margin: 20px auto;
+	border:none;
+    padding: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    background-color: #de0606;
+    text-align: center;
+    color: #fff!important;
+    border-radius: 4px;
+}
+}
+
+.form-control{
+	margin-bottom:10px;
+	}
+.row-muahang {
+    width: 100%;
+    height: auto;
+}
+
+.content-detail{
+	overflow:hidden;
+	height:auto;
+	}
+
+.box-comment{
+	overflow:hidden;
+	height:auto;
+	}
+	
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+	margin-bottom:10px;
+    font-size: 14px;
+	cursor:text;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
