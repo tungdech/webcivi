@@ -51,11 +51,6 @@ app.get("", function (req, res) {
   }
 });
 
-// app.get(tieuduong.link, function (req, res) {
-//   tieuduong.count++;
-//   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
-// });
-
 // app.get(sontung.link, function (req, res) {
 //   sontung.count++;
 //   res.sendFile("Vien-Ha-Thu-O-Mat-Ong-Rung1.html", { root: __dirname });
@@ -97,7 +92,6 @@ router.post("/addInfo", function (req, res) {
 });
 
 function getAccount(req) {
-  //console.log(req.headers)
   try {
     if (req.headers.host.includes(tieuduong.link)) {
       return tieuduong;
