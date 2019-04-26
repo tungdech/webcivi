@@ -1,0 +1,211 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+@font-face {
+	font-family: UTM Americana BE;
+	src: url(./fonts/UTMAmericanaBEx.ttf);
+}
+@font-face {
+	font-family: Roboto Bold;
+	src: url(./fonts/Roboto-Bold.ttf);
+}
+@font-face {
+	font-family: Roboto Condensed;
+	src: url(./fonts/RobotoCondensed-Regular.ttf);
+}
+@font-face {
+	font-family: Roboto BlackItalic;
+	src: url(./fonts/Roboto-BlackItalic.ttf);
+}
+@font-face {
+	font-family: Roboto ThinItalic;
+	src: url(./fonts/Roboto-ThinItalic.ttf);
+}
+@font-face {
+	font-family: UTMAvo;
+	src: url(./fonts/UTMAvo.ttf);
+}
+@font-face {
+	font-family: UTMAvoBold;
+	src: url(./fonts/UTMAvoBold.ttf);
+}
+@font-face {
+	font-family: TUV-Noh-Carbone;
+	src: url(./fonts/TUV-Noh-Carbone.ttf);
+}
+h2{
+    font-family: TUV-Noh-Carbone;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+.xoa{
+    clear: both;
+}
+#wrapper{
+    font-family: Roboto Condensed;
+    font-size: 18px;
+}
+.area1{
+    padding: 55px 0 55px 0;
+    clear: both;
+}
+.area1 .box1{
+    padding-top: 55px;
+}
+.area1 .box1 h2{
+    margin-bottom: 25px;
+}
+.area1 .box1 p{
+    position: relative;
+    padding-left: 35px;
+}
+.area1 .box1 img{
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+.area2{
+    color: white;
+    padding: 55px 0 55px 0;
+    background: url(../images/back3.jpg);
+    background-size: cover;
+    clear: both;
+}
+.area3{
+    padding: 35px 0 35px 0;
+    clear: both;
+}
+.area3 h2{
+    text-align: center;
+    font-size: 38px;
+}
+.area3 .box1{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    padding-top: 25px;
+    position: relative;
+}
+.area3 .box2{
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.area3 .box1 .thutu{
+    position: absolute;
+    top: 25px;
+    right: 0;
+}
+.area3 .box1 .thutu1{
+    position: absolute;
+    top: 25px;
+    left: 0;
+}
+.area3 h3{
+    font-weight: bold;
+    font-size: 32px;
+}
+.area4{
+    color: white;
+    text-align: center;
+    padding: 55px 0 55px 0;
+    background: url(../images/back3.jpg);
+    background-size: cover;
+    clear: both;
+}
+.area4 h2, .area4 h3{
+    font-family: TUV-Noh-Carbone;
+    text-align: center;
+    font-family: TUV-Noh-Carbone;
+}
+.area4 .box1{
+    background: white;
+    min-height: 381px;
+    color: black;
+    text-align: justify;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+.area4 .line{
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+.area5{
+    text-align: center;
+    padding: 55px 0 55px 0;
+    clear: both;
+}
+.area5 h2{
+    color: #7c0002;
+}
+.area6{
+    color: white;
+    padding: 25px 0 35px 0;
+    background: url(../images/back3.jpg);
+    background-size: cover;
+    clear: both;
+}
+.area6 h2{
+    text-align: center;
+}
+.area6 .box{
+    padding: 25px;
+    padding-bottom: 90px;
+}
+.area6 .box .frame{
+    border: 1px solid white;
+    padding: 30px;
+    padding-bottom: 90px;
+    position: relative;
+    text-align: center;
+}
+.area6 .box .frame h3{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.area6 .box .frame .ava{
+    position: absolute;
+    bottom: -90px;
+    left: 32%;
+}
+.area6 .box .frame p{
+    text-align: justify;
+}
+.footer{
+    text-align: center;
+    padding: 55px 0 55px 0;
+    clear: both;
+}
+.footer h3{
+    font-family: Roboto Bold;
+    color: #7c0002;
+    font-weight: bold;
+    font-size: 32px;
+}
+.footer .form-control{
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 75%;
+    border: 1px solid #7c0002;
+    border-radius: 20px;
+}
+.footer .button{
+    background: red;
+    color: white;
+    font-weight: bold;
+    border: 1px solid red;
+}
+.footer form{
+    margin-top: 60px;
+}
+
+@media only screen and (max-width: 768px){
+    .area6 .box .frame .ava {
+        left: 25%;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    
+}
+@media only screen and (min-width: 1441px){
+    
+}
