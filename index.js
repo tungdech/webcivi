@@ -105,7 +105,7 @@ router.post("/addInfo", function (req, res) {
 
 function getAccount(req) {
   try {
-    return bactocharuShop;
+    // return bactocharuShop;
     if (req.headers.host.includes(tieuduong.link)) {
       return tieuduong;
     } else if (req.headers.host.includes(phukienhay.link)) {
