@@ -22,8 +22,8 @@ var tieuduong = {
 
 var bactocharuShop = {
   name: 'bactocharushop',
-  link: 'bactoharu.shop',
-  filePath: __dirname + "/bactocharushop",
+  link: 'bactocharu.shop',
+  filePath: __dirname + "/hto-haru_file",
   count: 0,
 }
 
@@ -51,7 +51,12 @@ app.get("", function (req, res) {
     res.sendFile("./public/vongco.html", {
       root: __dirname
     });
-  } else {
+  } else if (account.name == "bactocharu"){
+    res.sendFile("./public/hto-haru.html", {
+      root: __dirname
+    });
+  }
+  else {
     res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
       root: __dirname
     });
