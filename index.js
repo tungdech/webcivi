@@ -20,6 +20,13 @@ var tieuduong = {
   count: 0,
 }
 
+var bactocharuShop = {
+  name: 'bactocharushop',
+  link: 'bactoharu.shop',
+  filePath: __dirname + "/bactocharushop",
+  count: 0,
+}
+
 var phukienhay = {
   name: "phukienhay",
   link: "phukienhay"
@@ -97,6 +104,8 @@ function getAccount(req) {
       return tieuduong;
     } else if (req.headers.host.includes(phukienhay.link)) {
       return phukienhay;
+    } else if (req.headers.host.includes(bactocharuShop.link)){
+      return bactocharuShop;
     } else return sontung;
   } catch (err) {
     console.log('Loi');

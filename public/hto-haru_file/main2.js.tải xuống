@@ -1,0 +1,242 @@
+function forceNumber(event){ 
+
+		var value = document.getElementById('phone').value;
+
+		var keyCode = event.keyCode ? event.keyCode : event.charCode;
+
+		if(keyCode != 48 && value.length < 1)
+
+		{BootstrapDialog.alert({
+
+			title: 'Thông Báo',
+
+			message: 'Số đầu là 0',
+
+			type: BootstrapDialog.TYPE_WARNING,
+
+			size: BootstrapDialog.SIZE_SMALL,
+
+			closable: true,
+
+			buttonLabel: 'Close'
+
+		});
+
+		$("#dathang-form #phone").focus();
+
+		return false;}
+
+		if((keyCode < 48 || keyCode > 58) && keyCode != 8 && keyCode != 9 && keyCode != 32 && keyCode != 37 && keyCode != 39 && keyCode != 40 && keyCode != 41 && keyCode != 43 && keyCode != 45 && keyCode != 46)
+
+		{BootstrapDialog.alert({
+
+			title: 'Thông Báo',
+
+			message: 'Vui lòng nhập số.',
+
+			type: BootstrapDialog.TYPE_WARNING,
+
+			size: BootstrapDialog.SIZE_SMALL,
+
+			closable: true,
+
+			buttonLabel: 'Close'
+
+		});
+
+		$("#dathang-form #phone").focus();
+
+		return false;}
+
+	} 
+
+function isPhone(elemid) {
+    elem = $(elemid);
+    var numericExpression = /^[0-9 .]+/;
+    if (elem.val().match(numericExpression) && elem.val().length > 9 && elem.val().length < 13) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+state = 0;
+// state2 = 0;
+state3 = 0;
+
+// function check(a) {
+//     a = document.getElementById(a);
+//     "none" != a.options[a.selectedIndex].text && (state = 1)
+// }
+// function check2(a) {
+//     a = document.getElementById(a);
+//     "none" != a.options[a.selectedIndex].text && (state2 = 1)
+// }
+// function check3(a) {
+//     a = document.getElementById(a);
+//     "none" != a.options[a.selectedIndex].text && (state3 = 1)
+// }
+
+function Payment() {
+
+ 
+    
+    if ($('#dathang-form #name').val() === '') {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập họ tên.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#dathang-form #name").focus();
+        return false;
+    }
+     if ($('#dathang-form #address').val() === '') {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập địa chỉ.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#dathang-form #address").focus();
+        return false;
+    }
+      if (!isPhone('#dathang-form #phone')) {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập Số Điện Thoại.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#dathang-form #phone").focus();
+        return false;
+    }
+
+    
+    
+
+}
+
+function Payment2() {
+    if ($('#name2').val() === '') {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập Họ Tên.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#name2").focus();
+        return false;
+    }
+    
+    if ($('#address2').val() === '') {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập địa chỉ',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#address2").focus();
+        return false;
+    }
+    
+    if (!isPhone('#phone2')) {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập Số Điện Thoại.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#phone2").focus();
+        return false;
+    }
+    
+    
+    
+    
+    
+}
+function PaymentKM() {
+    if ($('#dathang-form-km #name').val() === '') {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập Họ Tên.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#dathang-form-km #name").focus();
+        return false;
+    }
+    if (!isPhone('dathang-form-km #phone')) {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập Số Điện Thoại.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#dathang-form #phone").focus();
+        return false;
+    }
+    if ($('#dathang-form-km #email').val() === '') {
+        BootstrapDialog.alert({
+            title: 'Thông Báo',
+            message: 'Xin hãy nhập Email.',
+            type: BootstrapDialog.TYPE_WARNING,
+            size: BootstrapDialog.SIZE_SMALL,
+            closable: true,
+            buttonLabel: 'Close'
+        });
+        $("#dathang-form-km #email").focus();
+        return false;
+    }
+    if ($('#dathang-form-km #email').val() === '') {}
+        if ($('#dathang-form-km #address').val() === '') {}
+            var $data = $('form#dathang-form-km').serialize();
+        $('#dathang-form-km button').prop('disabled', true);
+        $.ajax({
+            type: 'POST',
+            url: 'http://green-coffeebean.com/libraries/phone.php',
+            dataType: 'json',
+            data: $data,
+            success: function(data) {
+                BootstrapDialog.alert({
+                    title: 'SUCCESS',
+                    message: 'Đặt hàng thành công',
+                    type: BootstrapDialog.TYPE_SUCCESS,
+                    closable: true,
+                    buttonLabel: 'Close'
+                });
+                $('input').val("");
+                $('#dathang-form-km button').prop('disabled', false);
+                window.location = "http://green-coffeebean.com/success-order.html";
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                BootstrapDialog.alert({
+                    title: 'WARNING',
+                    message: 'Vui lòng kiểm tra lại kết nối mạng.',
+                    type: BootstrapDialog.TYPE_WARNING,
+                    size: BootstrapDialog.SIZE_SMALL,
+                    closable: true,
+                    buttonLabel: 'Close'
+                });
+                return false;
+            }
+        });
+        return false;
+    }
