@@ -51,16 +51,16 @@ app.get("", function (req, res) {
     res.sendFile("./public/vongco.html", {
       root: __dirname
     });
-  } else if (account.name == "bactocharu"){
+  } else {//(account.name == "bactocharushop")
     res.sendFile("./public/hto-haru.html", {
       root: __dirname
     });
   }
-  else {
-    res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
-      root: __dirname
-    });
-  }
+  // else {
+  //   res.sendFile("./public/Vien-Ha-Thu-O-Mat-Ong-Rung1.html", {
+  //     root: __dirname
+  //   });
+  // }
 });
 
 // app.get(sontung.link, function (req, res) {
@@ -132,7 +132,7 @@ router.get("/get123key", function (req, res) {
     text = fs.readFileSync(Account.filePath, 'utf8').toString();
     res.send(text + '</br> Truy cap: ' + Account.count);
   } catch (err) {
-    res.send('Khong co du lieu')
+    res.send('Khong co du lieu')  
   }
   // } else {
   //   res.send("Sorry");
